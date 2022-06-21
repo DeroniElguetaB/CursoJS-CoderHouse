@@ -4,17 +4,22 @@ function saludar(){
 }
 
 saludar()
-let Question = prompt("Es usuario de Mangos 3D? si/no")
+let question
 
-if ((Question == "si") || (Question == "Si")) {
-    let Usuario = prompt("Ingresar nombre de usuario")
-    alert(`Hola ${Usuario}!`)
-}
+while (question != "si" && question != "Si"){
+    
+    question = prompt("Es usuario de Mangos 3D? si/no")
 
-else if ((Question == "no") || (Question == "No")) {
-    alert("Es necesario crear un usuario.")
-}
+    if ((question == "si") || (question == "Si")) {
+        let Usuario = prompt("Ingresar nombre de usuario")
+        alert(`Hola ${Usuario}!`)
+    }
 
-else {
-    alert("Valor no valido")
+    else if ((question == "no") || (question == "No")) {
+        alert("Es necesario crear un usuario.")
+    }
+
+    else {
+        alert("Valor no valido")
+    }
 }
