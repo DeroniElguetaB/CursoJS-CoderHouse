@@ -53,7 +53,7 @@ while (question != "si" && question != "Si"){
     if ((question == "si") || (question == "Si")) {
         let usuario = prompt("Ingresar nombre de usuario")
 
-        if(usuario == "luis" || usuario == "Luis"){
+        if(usuario == "luis" || usuario == "dero"){
             
             alert(`Hola ${usuario}! que deseas hacer?`)
             opcionesAdmin = parseInt(prompt("1. Agregar productos \n2. Ver catalogo de productos"))
@@ -70,6 +70,14 @@ while (question != "si" && question != "Si"){
                 
                         let productoARegistrar = new Producto(nombre, precioVenta, cantidad)
                         productos.push(productoARegistrar)
+                        let productoNuevo1 = new Producto("Soporte patente moto 150cc", 800, 5)
+                        productos.push(productoNuevo1)
+                        let productoNuevo2 = new Producto("Carcasa Iphone 12", 1500, 12)
+                        productos.push(productoNuevo2)
+                        let productoNuevo3 = new Producto("Porta-lampara ironman", 1500, 1)
+                        productos.push(productoNuevo3)
+                        let productoNuevo4 = new Producto("Tapas maquinas Barber&Style", 600, 4)
+                        productos.push(productoNuevo4)
                     }
                     return productos
                 }
@@ -103,7 +111,7 @@ while (question != "si" && question != "Si"){
                 }
 
                 else if (opcion == 2 || opcion == "2.") {
-
+                    productosDisponibles()
                     let seleccionusuario = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style = ($600) \n \nSeleccione su producto con su numero correspondiente"))
 
                     switch(seleccionusuario){
