@@ -9,10 +9,12 @@ function productoIngresados (){
                 
     let productoNuevo1 = new Producto("Soporte patente moto 150cc", 800, 5)
     productos.push(productoNuevo1)
-    let productoNuevo2 = new Producto("Carcasa Iphone 12", 1700, 12)
+    let productoNuevo2 = new Producto("Carcasa Iphone 12", 1500, 12)
     productos.push(productoNuevo2)
     let productoNuevo3 = new Producto("Porta-lampara ironman", 1500, 1)
     productos.push(productoNuevo3)
+    let productoNuevo4 = new Producto("Tapas maquinas Barber&Style", 600, 4)
+    productos.push(productoNuevo4)
     
     return productos
 }
@@ -51,7 +53,7 @@ while (question != "si" && question != "Si"){
     if ((question == "si") || (question == "Si")) {
         let usuario = prompt("Ingresar nombre de usuario")
 
-        if(usuario == "dero" || usuario == "Dero"){
+        if(usuario == "luis" || usuario == "Luis"){
             
             alert(`Hola ${usuario}! que deseas hacer?`)
             opcionesAdmin = parseInt(prompt("1. Agregar productos \n2. Ver catalogo de productos"))
@@ -97,28 +99,28 @@ while (question != "si" && question != "Si"){
         
                 if (opcion == 1 || opcion == "1.") {
                     productosDisponibles()
-                    alert("- Mates 3D personalizados - ($500) \n- Carcasas iphone/android - ($700) \n- Tapas maquinas Barber&Style = ($600) \n- Fundas Termo design. ($800) \n- Realiza un diseño unico y personalizado!  ")
+                    alert("- Soporte patente moto 150cc - ($800) \n- Carcasas iphone/android - ($1500) \n- Porta-lampara ironman - ($1500) \n- Tapas maquinas Barber&Style = ($600) \n- Encarga tus diseños unicos y personalizados! ")
                 }
 
                 else if (opcion == 2 || opcion == "2.") {
 
-                    let seleccionusuario = parseInt(prompt("(1) - Comprar Mate 3D - ($500) \n(2) - Comprar carcasa iphone/android - ($700) \n(3) - Comprar tapa maquina Barber&Style = ($600) \n(4) - Comprar funda Termo design. ($800) \n \nSeleccione su producto con su numero correspondiente"))
+                    let seleccionusuario = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style = ($600) \n \nSeleccione su producto con su numero correspondiente"))
 
                     switch(seleccionusuario){
                         case 1:
-                            let opcion1 = (prompt("Añadio Mate 3D - ($500) al carrito de compra \nDesea algo mas?"))
+                            let opcion1 = (prompt("Añadio Soporte patente moto 150cc - ($800) al carrito de compra \nDesea algo mas?"))
                             alert("Muchas gracias por comprar con Mangos 3D!")
                             break
                         case 2:
-                            let opcion2 = (prompt("Añadio carcasa iphone/android - ($700) al carrito de compra \nDesea algo mas?"))
+                            let opcion2 = (prompt("Añadio Carcasa iphone/android - ($1500) al carrito de compra \nDesea algo mas?"))
                             alert("Muchas gracias por comprar con Mangos 3D!")
                             break
                         case 3:
-                            let opcion3 = (prompt("Añadio tapa maquina Barber&Style = ($600) al carrito de compra \nDesea algo mas?"))
+                            let opcion3 = (prompt("Añadio Porta-lampara ironman - ($1500) al carrito de compra \nDesea algo mas?"))
                             alert("Muchas gracias por comprar con Mangos 3D!")
                             break
                         case 4:
-                            let opcion4 = (prompt("Añadio funda Termo design. ($800) al carrito de compra \nDesea algo mas?"))
+                            let opcion4 = (prompt("Añadio Tapa maquinas Barber&Style = ($600) al carrito de compra \nDesea algo mas?"))
                             alert("Muchas gracias por comprar con Mangos 3D!")
                             break
                         default:
