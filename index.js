@@ -30,7 +30,7 @@ function productosDisponibles(){
     mostrarProductos(productosEnStock)
 }
 
-// OBJETO GLOBAL----------------------------------------------------------------------------------------
+// OBJETO GLOBAL---------------------------------------------------------------------------------
 let productos = [] 
 
 //CLASS OBJETO CONSTRUCTOR-----------------------------------------------------------------------
@@ -41,10 +41,10 @@ class Producto {
         this.cantidad = cantidad
     }
 }
+//------------------------------------------------------------------------------------------------
 
 
-
-// MAQUETADO DE CODIGO ----------------------------------------------------------------------------
+// MAQUETADO DE CODIGO ---------------------------------------------------------------------------
 saludar()
 let question
 
@@ -92,7 +92,7 @@ while (question != "si" && question != "Si"){
             else if(opcionesAdmin == 2){
                 productosDisponibles()
             } 
-//---------------- COMANDO INVALIDO ----------------------------------------------            
+//---------------- COMANDO INVALIDO -------------------------------------------------------------      
             else{
                 invalido()
             }
@@ -100,19 +100,17 @@ while (question != "si" && question != "Si"){
 // -------USUARIOS RESTANTES - VISTA DE USUARIO-------------------------------------------------
         else {
             alert(`Hola ${usuario}! que deseas hacer?`)
-            let opcion
-            while ((opcion !== 1 && opcion !== "1.") || (opcion !== 2 && opcion !== "2.") || (opcion !== "ESC")){
-
-            opcion = parseInt(prompt("1. Ver catalogo de productos. \n2. Realizar una compra de producto. \n3. Ingresar ESC para volver al menu anterior."))    
-//---------------- OPCION 1 VER CATALOGO DE PRODUCTOS ----------------------------------------------    
+            let opcion = parseInt(prompt("1. Ver catalogo de productos. \n2. Realizar una compra de producto. \n3. Ingresar ESC para salir."))    
+//---------------- OPCION 1 VER CATALOGO DE PRODUCTOS ----------------------------------------------   
                 if (opcion == 1 || opcion == "1.") {
                     productosDisponibles()
                     alert("- Soporte patente moto 150cc - ($800) \n- Carcasas iphone/android - ($1500) \n- Porta-lampara ironman - ($1500) \n- Tapas maquinas Barber&Style = ($600) \n\nEncarga tus diseños unicos y personalizados! ")
                 }
 //---------------- OPCION 2 REALIZAR COMPRA DE PRODUCTOS ----------------------------------------------    
                 else if (opcion == 2 || opcion == "2.") {
-                    seleccionusuario = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style = ($600) \n \nSeleccione su producto con su numero correspondiente"))
-                    let carritoCompra = []
+                    seleccionusuario = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style - ($600) \n \nSeleccione su producto con su numero correspondiente"))
+                    let carritoCompra = [{nombre:"alexis", precioVenta: 500},{}]
+
                     class ItemsCarrito {
                         constructor (nombre, precioVenta, cantidad){
                             this.nombre = nombre.toUpperCase()
@@ -120,22 +118,37 @@ while (question != "si" && question != "Si"){
                             this.cantidad = cantidad
                         }
                     }
+                    function mostrarItems (carritoCompra){
+                        for(const ItemsCarrito of carritoCompra){
+                            console.log(ItemsCarrito)
+                            console.log(ItemsCarrito.nombre)
+                        }
+                    }
                     switch(seleccionusuario){
 //------------------------OPCION 1 - COMPRA ITEM 1 -----------------------------------------------------                       
                         case 1:
-                            function agregarItems1 (){
-                                let item1 =prompt("Añadio Soporte patente moto 150cc - ($800) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
+                            function agregarItem1 (){
+                                let compra =prompt("Añadio Soporte patente moto 150cc - ($800) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
                                 let items1 = new carritoCompra ("Soporte patente moto 150cc", 800, 5)
-                                console.log(items1)
+                                carritoCompra.push(items1)
+                                return carritoCompra
                             }
-                            if(opcion1 === "si"){
-                                function agregarItems1 (){
-                                    let item1 = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style = ($600) \n \nSeleccione su producto con su numero correspondiente"))
+                            function main(){
+                                let productoAgregado = agregarItem1 ()
+                                mostrarItems(productoAgregado)
+                            }
+                            main()
+//------------------------------------OPCION "SI" DESEA AGREGAR ALGO MAS AL CARRITO -------------------------                     
+                                if(opcion1 === "si"){
+                                    function agregarMas (){
+                                        let item1 = parseInt(prompt("(1) - Soporte patente moto 150cc - ($800) \n(2) - Carcasas iphone/android - ($1500) \n(3) - Porta-lampara ironman - ($1500) \n(4) - Tapas maquinas Barber&Style = ($600) \n \nSeleccione su producto con su numero correspondiente"))
+                                    }
+                                    agregarMas()
                                 }
-                            }
-                            else{
-                            alert("Muchas gracias por comprar con Mangos 3D!")
-                            }
+//------------------------------------OPCION "NO" DESEA AGREGAR ALGO MAS AL CARRITO -------------------------
+                                else{
+                                alert("Muchas gracias por comprar con Mangos 3D!")
+                                }
                             break
 //------------------------OPCION 2 - COMPRA ITEM 2 -----------------------------------------------------                       
                         case 2:
@@ -159,16 +172,15 @@ while (question != "si" && question != "Si"){
                     }
                 }
 //---------------- OPCION 3 SALIR  -----------------------------------------------------------------    
-                else if (opcion == "ESC") {
+                else if (opcion === "ESC") {
                     alert("Gracias, esperemos que vuelva pronto!")
                 }
 //---------------- OPCION COMANDO INVALIDO  ---------------------------------------------------------    
-                else {
-                    invalido()
-                }
+                // else {
+                //     invalido()
+                // }
             }
         }
-    }
 // PREGUNTA SI ES USUARIO DE MANGOS 3D - "OPCION NO" ----------------------------------------------
     else if ((question == "no") || (question == "No")) {
         alert("Es necesario crear un usuario.")
