@@ -11,7 +11,7 @@ function productoIngresados (){
     productos.push(productoNuevo1)
     let productoNuevo2 = new Producto("Carcasa Iphone 12", 1500, 12)
     productos.push(productoNuevo2)
-    let productoNuevo3 = new Producto("Porta-lampara ironman", 1500, 1)
+    let productoNuevo3 = new Producto("Porta-lampara ironman", 1300, 1)
     productos.push(productoNuevo3)
     let productoNuevo4 = new Producto("Tapas maquinas Barber&Style", 600, 4)
     productos.push(productoNuevo4)
@@ -75,7 +75,7 @@ while (question != "si" && question != "Si"){
                         productos.push(productoNuevo1)
                         let productoNuevo2 = new Producto("Carcasa Iphone 12", 1500, 12)
                         productos.push(productoNuevo2)
-                        let productoNuevo3 = new Producto("Porta-lampara ironman", 1500, 1)
+                        let productoNuevo3 = new Producto("Porta-lampara ironman", 1300, 1)
                         productos.push(productoNuevo3)
                         let productoNuevo4 = new Producto("Tapas maquinas Barber&Style", 600, 4)
                         productos.push(productoNuevo4)
@@ -141,7 +141,47 @@ while (question != "si" && question != "Si"){
                                     mostrarItems(productoAgregado1)
                                 }
                                 main1()
-                                let compra1 = prompt("Añadio Soporte patente moto 150cc - ($800) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
+                                let compra1 = prompt("Añadio Soporte patente moto 150cc - ($800) al carrito de compra \n\n(1) Realizar el pago \n(2) Anular compra")
+//---------------------------------- OPCION 2.1.1 - REALIZAR PAGO ITEM 1 ------------------------------------------------------------             
+                                    if(compra1 == 1){
+                                        const newCarritoCompra1 = [{nombre: "Soporte patente moto 150cc", precioVenta: 800, cantidad: 5}]
+                                        function precioConImpuestos(){
+                                            const impuestosARG = newCarritoCompra1.map ((el) =>{
+                                                return {
+                                                    precioVenta: el.precioVenta,
+                                                    precioVentaIva: el.precioVenta*0.21,
+                                                    impuestoPais: el.precioVenta*0.08,
+                                                    impuestoALasGanancias: el.precioVenta*0.35,
+                                                    cantidad: el.cantidad - 4,
+                                                    envio: el.precioVenta*0.15
+                                                }
+                                            })
+                                            for (const impuestosArg of impuestosARG){
+                                                console.log("UNIDADES " + "[" + impuestosArg.cantidad + "]")
+                                                console.log("- IMPUESTOS ARG -")
+                                                console.log("(21%) IVA: " + "$" + impuestosArg.precioVentaIva)
+                                                console.log("(8%) IMPUESTO PAIS: " + "$" + impuestosArg.impuestoPais)
+                                                console.log("(35%) IMPUESTO A LAS GANANCIAS: " + "$" + impuestosArg.impuestoALasGanancias)
+                                                console.log("(15%) COSTO ENVIO: " + "$" + impuestosArg.envio)
+                                            }
+                                            function total(){
+                                                const precioFinal = impuestosARG.reduce((acc,el) => acc + (el.precioVenta + el.precioVentaIva + el.impuestoPais + el.impuestoALasGanancias + el.envio)*el.cantidad, 0)
+                                                console.log("PRECIO FINAL AL CONSUMIDOR: " + precioFinal)
+                                            }
+                                            total()
+                                        }
+                                        precioConImpuestos()
+                                        alert("El total a pagar de su compra es de $1432 arg. \n\nENTER para pagar")
+                                        alert("Muchas gracias por comprar con MANGOS 3D!")
+                                    }
+//---------------------------------- OPCION 2.1.2 - ANULAR PAGO ITEM 1 ------------------------------------------------------------
+                                    else if(compra1 == 2){
+                                        alert("Usted anulo su compra, vuelva pronto!")
+                                    }
+//---------------------------------- OPCION 2.1.3 - COMANDO INVALIDO ------------------------------------------------------------
+                                    else{
+                                        invalido()
+                                    }
                                 break
 //-------------------------- OPCION 2.2 - COMPRA ITEM 2 -----------------------------------------------------                       
                             case 2:
@@ -155,7 +195,47 @@ while (question != "si" && question != "Si"){
                                     mostrarItems(productoAgregado2)
                                 }
                                 main2()
-                                let compra2 = prompt("Añadio Carcasa iphone/android - ($1500) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
+                                let compra2 = prompt("Añadio Carcasas iphone/android - ($1500) al carrito de compra \n\n(1) Realizar el pago \n(2) Anular compra")
+//---------------------------------- OPCION 2.2.1 - REALIZAR PAGO ITEM 2 ------------------------------------------------------------             
+                                    if(compra2 == 1){
+                                        const newCarritoCompra2 = [{nombre: "Carcasas iphone/android", precioVenta: 1500, cantidad: 12}]
+                                        function precioConImpuestos(){
+                                            const impuestosARG = newCarritoCompra2.map ((el) =>{
+                                                return {
+                                                    precioVenta: el.precioVenta,
+                                                    precioVentaIva: el.precioVenta*0.21,
+                                                    impuestoPais: el.precioVenta*0.08,
+                                                    impuestoALasGanancias: el.precioVenta*0.35,
+                                                    cantidad: el.cantidad - 9,
+                                                    envio: el.precioVenta*0.15
+                                                }
+                                            })
+                                            for (const impuestosArg of impuestosARG){
+                                                console.log("UNIDADES " + "[" + impuestosArg.cantidad + "]")
+                                                console.log("- IMPUESTOS ARG -")
+                                                console.log("(21%) IVA: " + "$" + impuestosArg.precioVentaIva)
+                                                console.log("(8%) IMPUESTO PAIS: " + "$" + impuestosArg.impuestoPais)
+                                                console.log("(35%) IMPUESTO A LAS GANANCIAS: " + "$" + impuestosArg.impuestoALasGanancias)
+                                                console.log("(15%) COSTO ENVIO: " + "$" + impuestosArg.envio)
+                                            }
+                                            function total(){
+                                                const precioFinal = impuestosARG.reduce((acc,el) => acc + (el.precioVenta + el.precioVentaIva + el.impuestoPais + el.impuestoALasGanancias + el.envio)*el.cantidad, 0)
+                                                console.log("PRECIO FINAL AL CONSUMIDOR: " + precioFinal)
+                                            }
+                                            total()
+                                        }
+                                        precioConImpuestos()
+                                        alert("El total a pagar de su compra es de $8055 arg. \n\nENTER para pagar")
+                                        alert("Muchas gracias por comprar con MANGOS 3D!")
+                                    }
+//---------------------------------- OPCION 2.2.2 - ANULAR PAGO ITEM 2 ------------------------------------------------------------
+                                    else if(compra2 == 2){
+                                        alert("Usted anulo su compra, vuelva pronto!")
+                                    }
+//---------------------------------- OPCION 2.2.3 - COMANDO INVALIDO ------------------------------------------------------------
+                                    else{
+                                        invalido()
+                                    }
                                 break
 //-------------------------- OPCION 2.3 - COMPRA ITEM 3 -----------------------------------------------------                       
                             case 3:
@@ -169,7 +249,47 @@ while (question != "si" && question != "Si"){
                                     mostrarItems(productoAgregado3)
                                 }
                                 main3()
-                                let compra3 = prompt("Añadio Porta-lampara ironman - ($1500) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
+                                let compra3 = prompt("Añadio Carcasas iphone/android - ($1500) al carrito de compra \n\n(1) Realizar el pago \n(2) Anular compra")
+//---------------------------------- OPCION 2.3.1 - REALIZAR PAGO ITEM 3 ------------------------------------------------------------             
+                                    if(compra3 == 1){
+                                        const newCarritoCompra3 = [{nombre: "Porta-lampara Ironman", precioVenta: 1300, cantidad: 1}]
+                                        function precioConImpuestos(){
+                                            const impuestosARG = newCarritoCompra3.map ((el) =>{
+                                                return {
+                                                    precioVenta: el.precioVenta,
+                                                    precioVentaIva: el.precioVenta*0.21,
+                                                    impuestoPais: el.precioVenta*0.08,
+                                                    impuestoALasGanancias: el.precioVenta*0.35,
+                                                    cantidad: el.cantidad,
+                                                    envio: el.precioVenta*0.15
+                                                }
+                                            })
+                                            for (const impuestosArg of impuestosARG){
+                                                console.log("UNIDADES " + "[" + impuestosArg.cantidad + "]")
+                                                console.log("- IMPUESTOS ARG -")
+                                                console.log("(21%) IVA: " + "$" + impuestosArg.precioVentaIva)
+                                                console.log("(8%) IMPUESTO PAIS: " + "$" + impuestosArg.impuestoPais)
+                                                console.log("(35%) IMPUESTO A LAS GANANCIAS: " + "$" + impuestosArg.impuestoALasGanancias)
+                                                console.log("(15%) COSTO ENVIO: " + "$" + impuestosArg.envio)
+                                            }
+                                            function total(){
+                                                const precioFinal = impuestosARG.reduce((acc,el) => acc + (el.precioVenta + el.precioVentaIva + el.impuestoPais + el.impuestoALasGanancias + el.envio)*el.cantidad, 0)
+                                                console.log("PRECIO FINAL AL CONSUMIDOR: " + precioFinal)
+                                            }
+                                            total()
+                                        }
+                                        precioConImpuestos()
+                                        alert("El total a pagar de su compra es de $2327 arg. \n\nENTER para pagar")
+                                        alert("Muchas gracias por comprar con MANGOS 3D!")
+                                    }
+//---------------------------------- OPCION 2.3.2 - ANULAR PAGO ITEM 3 ------------------------------------------------------------
+                                    else if(compra3 == 2){
+                                        alert("Usted anulo su compra, vuelva pronto!")
+                                    }
+//---------------------------------- OPCION 2.3.3 - COMANDO INVALIDO ------------------------------------------------------------
+                                    else{
+                                        invalido()
+                                    }
                                 break
 //-------------------------- OPCION 2.4 - COMPRA ITEM 4 -----------------------------------------------------                       
                             case 4:
@@ -183,7 +303,47 @@ while (question != "si" && question != "Si"){
                                     mostrarItems(productoAgregado4)
                                 }
                                 main4()
-                                let compra4 = prompt("Añadio Tapas maquinas Barber&Style - ($600) al carrito de compra \nDesea algo mas? \n\n Ingrese si/no")
+                                let compra4 = prompt("Añadio Tapas maquinas Barber&Style - ($600) al carrito de compra \n\n(1) Realizar el pago \n(2) Anular compra")
+//---------------------------------- OPCION 2.4.1 - REALIZAR PAGO ITEM 3 ------------------------------------------------------------             
+                                    if(compra4 == 1){
+                                        const newCarritoCompra4 = [{nombre: "Tapas maquinas Barber&Style", precioVenta: 600, cantidad: 4}]
+                                        function precioConImpuestos(){
+                                            const impuestosARG = newCarritoCompra4.map ((el) =>{
+                                                return {
+                                                    precioVenta: el.precioVenta,
+                                                    precioVentaIva: el.precioVenta*0.21,
+                                                    impuestoPais: el.precioVenta*0.08,
+                                                    impuestoALasGanancias: el.precioVenta*0.35,
+                                                    cantidad: el.cantidad - 3,
+                                                    envio: el.precioVenta*0.15
+                                                }
+                                            })
+                                            for (const impuestosArg of impuestosARG){
+                                                console.log("UNIDADES " + "[" + impuestosArg.cantidad + "]")
+                                                console.log("- IMPUESTOS ARG -")
+                                                console.log("(21%) IVA: " + "$" + impuestosArg.precioVentaIva)
+                                                console.log("(8%) IMPUESTO PAIS: " + "$" + impuestosArg.impuestoPais)
+                                                console.log("(35%) IMPUESTO A LAS GANANCIAS: " + "$" + impuestosArg.impuestoALasGanancias)
+                                                console.log("(15%) COSTO ENVIO: " + "$" + impuestosArg.envio)
+                                            }
+                                            function total(){
+                                                const precioFinal = impuestosARG.reduce((acc,el) => acc + (el.precioVenta + el.precioVentaIva + el.impuestoPais + el.impuestoALasGanancias + el.envio)*el.cantidad, 0)
+                                                console.log("PRECIO FINAL AL CONSUMIDOR: " + precioFinal)
+                                            }
+                                            total()
+                                        }
+                                        precioConImpuestos()
+                                        alert("El total a pagar de su compra es de $1074 arg. \n\nENTER para pagar")
+                                        alert("Muchas gracias por comprar con MANGOS 3D!")
+                                    }
+//---------------------------------- OPCION 2.4.2 - ANULAR PAGO ITEM 3 ------------------------------------------------------------
+                                    else if(compra4 == 2){
+                                        alert("Usted anulo su compra, vuelva pronto!")
+                                    }
+//---------------------------------- OPCION 2.4.3 - COMANDO INVALIDO ------------------------------------------------------------
+                                    else{
+                                        invalido()
+                                    }
                                 break
 //-------------------------- OPCION COMANDO INVALIDO -----------------------------------------------------                       
                             default:
