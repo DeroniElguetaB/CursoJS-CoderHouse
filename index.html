@@ -7,6 +7,87 @@
     <title>Catalogo Mangos 3D</title>
 </head>
 <body>
-    <script src="index.js"></script>
+    <div class="container-fluid margen justify-content-center" id="5">
+        <h2 class="">PEDIDOS</h2>
+    </div>
+    <div class="container formulario">
+        <form id="formularioMangos">
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault01">Nombre</label>
+                    <input type="text" class="form-control" id="validationDefault01" value="" placeholder="Ej. Alexis" required>
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault02">Apellido</label>
+                    <input type="text" class="form-control" id="validationDefault02" value="" placeholder="Ej. Fernandez" required>
+                </div>
+            </div>
+            <div class="form-group row">
+                <legend class="col-form-label col-sm-2 float-sm-left pt-0">Sexo</legend>
+                <div class="col-sm-10">
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio1" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio1">Masculino</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio2" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio2">Femenino</label>
+                    </div>
+                    <div class="custom-control custom-radio">
+                        <input type="radio" id="customRadio3" name="customRadio" class="custom-control-input">
+                        <label class="custom-control-label" for="customRadio3">Indefinido</label>
+                    </div>
+                </div>   
+            </div>  
+            <div class="form-row">
+                <div class="col-md-6 mb-3">
+                    <label for="validationDefault03">Ciudad</label>
+                    <input type="text" class="form-control" id="validationDefault03" placeholder="Ej. Mendoza" required>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationDefault04">Provincia</label>
+                    <select class="custom-select" id="validationDefault04" required>
+                    <option selected disabled value="">Elegir</option>
+                    <option>Mendoza</option>
+                    <option>Santa Fe</option>
+                    <option>Buenos Aires</option>
+                    </select>
+                </div>
+                <div class="col-md-3 mb-3">
+                    <label for="validationDefault05">Codigo Postal</label>
+                    <input type="text" class="form-control" id="validationDefault05" placeholder="Ej. 5345" required>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlInput1">Email</label>
+                <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Ej. alexisfernandez@example.com" required>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Telefono</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" placeholder="Ej. 2619830300" rows="1"></textarea>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlTextarea1">Descripcion</label>
+                <textarea class="form-control" id="exampleFormControlTextarea2" placeholder= "Descripcion del producto (caracteristicas, color, medidas, proposito, etc)" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+                <div class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                    <label class="custom-control-label" for="customCheck1">Acepto que el equipo de MANGOS3D se comunique conmigo por el pedido del producto.</label>
+                </div>
+            </div>
+            <div>
+                <button class="btn btn-primary" type="submit">Enviar</button>
+            </div>
+        </form>
+    </div>
+    <!-- ------- Links js,cdn ------- -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- ------- Script ------- -->
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.min.js" integrity="sha384-VHvPCCyXqtD5DqJeNxl2dtTyhF78xXNXdkwX1CZeRusQfRKp+tA7hAShOK/B/fQ2" crossorigin="anonymous"></script>
+    <script src="form.js"></script>
 </body>
 </html>
